@@ -1,0 +1,17 @@
+.filters{
+    h4{
+        color: rgb(35, 107, 201);
+    }
+    .inputWrapper{
+        .inputItem{
+            display: flex;
+            gap: 10px;
+            font-size: 16px;
+            span{
+                display: inline-block;
+                min-width: 50px;
+            }
+        }
+    }
+}
+

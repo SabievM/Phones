@@ -1,0 +1,47 @@
+.credit{
+    margin-top: 30px;
+    padding: 30px;
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        max-width: 500px;
+        height: 400px;
+        .item{
+            display: flex;
+            justify-content: space-between;
+            label{
+                font-size: 12px;
+                font-weight: 400;
+                color: #555;
+
+            }
+            input{
+                border: none;
+                border-bottom: 1px solid #555;
+                font-size: 14px;
+                font-weight: 600;
+                color: #333;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        .button{
+            padding: 10px 20px;
+            background-color: rgb(37, 117, 197);
+            color: white;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+            &:focus{
+                outline: none;
+            }
+        }.result{
+            color: red;
+            font-size: 14px;
+            font-weight: lighter;
+        }
+    }
+    
+}
