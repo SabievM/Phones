@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Filter.scss';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setFilteredData } from '../../redux/filterSlice';
 
-import { DataContext } from '../../App';
 
 const Filter = () => {
     const [phonePrice, setPhonePrice] = useState(null);
     const [selectedRam, setSelectedRam] = useState([]);
     const [selectedStorage, setSelectedStorage] = useState([]);
-    
-    const {setDataFilter} = useContext(DataContext)
+    const dispatch = useDispatch()
 
     const { slug } = useParams();
 
@@ -21,11 +21,11 @@ const Filter = () => {
                 if (slug){
                     const url = `http://127.0.0.1:8000/api/products/${slug}/filter/?price=${phonePrice !== null ? phonePrice : ''}&ram=${selectedRam.join(',')}&storage=${selectedStorage.join(',')}`;
                     const resp = await axios.get(url);
-                    setDataFilter(resp.data)
+                    dispatch(setFilteredData(resp.data))
                 } else{
                     const url = `http://127.0.0.1:8000/api/products/filter/?price=${phonePrice !== null ? phonePrice : ''}&ram=${selectedRam.join(',')}&storage=${selectedStorage.join(',')}`;
                     const resp = await axios.get(url);
-                    setDataFilter(resp.data)
+                    dispatch(setFilteredData(resp.data))
                 }
                     
                 
@@ -34,7 +34,7 @@ const Filter = () => {
             }
         };
         fetchFilter();
-    }, [phonePrice, selectedRam, selectedStorage, slug, setDataFilter]);
+    }, [phonePrice, selectedRam, selectedStorage, slug, dispatch]);
 
     const handleRamChange = (value) => {
         setSelectedRam(prev => 

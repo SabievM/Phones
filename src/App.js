@@ -18,9 +18,9 @@ export const DataContext = createContext(null)
 const Layout = () => {
 
   const [dataFilter, setDataFilter] = useState([])
-
+  const [cartList, setCartList] = useState([])
   return (
-    <DataContext value={{dataFilter, setDataFilter}}>
+    <DataContext value={{dataFilter, setDataFilter, cartList, setCartList}}>
       <div className="app">
         <Navbar />
         <div className='middle'>
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
-        path: '/products/:slug?/filter?/:price?/:ram?/:storage?',
+        path: '/products/:slug',
         element: <Home />
       },
       {

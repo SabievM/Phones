@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CurrencyExchangeOutlinedIcon from '@mui/icons-material/CurrencyExchangeOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
+import Cart from '../Cart/Cart';
 
 import './Navbar.scss'
 
 const NavBar = () => {
+
+  const [open, setOpen] = useState(false)
+  console.log("Рендер компонента - Navbar")
+
+
+
   return (
     <div className='navbar'>
       <div className="wrapper">
@@ -48,13 +55,20 @@ const NavBar = () => {
               <span>Контакты</span>
             </div>
           </Link>
-          <Link className='link'>
-            <div className="item">
-              <PermIdentityOutlinedIcon />
-            </div>
-          </Link>
+
+          <div className="item" onClick={() => 
+            (
+              setOpen(!open)
+            )}>
+            <ShoppingCartOutlinedIcon />
+          </div>
+
         </div>
       </div>
+      {open && <div className='Cart'>
+        <Cart/>
+      </div>}
+      
     </div>
   )
 };

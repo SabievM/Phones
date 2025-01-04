@@ -4,6 +4,7 @@
     top: 0;
     background-color: white;
     z-index: 100;
+    position: relative;
     .wrapper{
         display: flex;
         justify-content: space-between;
@@ -58,10 +59,19 @@
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
+                cursor: pointer;
                 span{
                     font-size: 14px;
                 }
             }
         }
+    }
+    .Cart{
+        position: absolute;
+        top: 75px;
+        right: 0;
+        width: 500px;
+        height: 600px;
+        padding: 20px;
     }
 }

@@ -8,7 +8,7 @@ const Credit = () => {
     const [mounth, setMounth] = useState(null);
     const [result, setResult] = useState(null);
 
-
+    console.log("Рендер компонента - Credit")
     const getResult = () => {
         setResult((sum * 135 / (100)) / mounth)
     }
@@ -27,7 +27,7 @@ const Credit = () => {
                 <button onClick={getResult} className='button'>Расчитать</button>
                 <div className="result">
                     
-                    <span>На сумму {sum} при рассрочки на {mounth} месяцев ежемесячный платеж составит - {result} рублей</span>
+                    <span>На сумму {sum} при рассрочки на {mounth} месяцев, ежемесячный платеж составит - {Math.ceil(result)} рублей</span>
  
                 </div>
             </div>
